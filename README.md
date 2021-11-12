@@ -33,13 +33,15 @@ Skup podataka se sastoji od atributa:
 
 - prezime arhitekta
 
+Znamenitost ima atribute kao što su identifikator,naziv, stoljeće, tip, visina te umjetnički stil.
+
 Primarni ključ znamenitosti je identifikator. 
 
-Znamenitost je izgrađena u određenom stoljeću te je na projektu sudjelovalo jedan ili više arhitekata. 
+Pri izgradnji znamenitosti je sudjelovalo jedan ili više arhitekata.
 
-Oni su određeni također identifikatorom.
+Arhitekti su određeni također identifikatorom, imenom i prezimenom.
 
-Svaki arhitekt ima svoje atribute ime i prezime, te tu možemo uočiti parent-child vezu. 
+Primarni ključ arhitekta je identifikator.
 
 S druge strane, znamenitost se nalazi u određenom gradu koji je u određenoj državi.
 
