@@ -4,7 +4,7 @@
 
 Autor: Lorena Martinović
 
-Verzija: 1.0
+Verzija: 2.0
 
 Jezik podataka: engleski
 
