@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Znamenitosti</title>
+  <meta charset="UTF-8">
+  <meta name="author" content="Lorena Martinović">
+  <meta name="keywords" content="landmarks,open data">
+  <meta name="discription" content="Open data for landmarks">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+</head>
+
+
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container">
+    <h4><b>INFO</b></h4>
+    <hr>
+  </div>
+  <div class="w3-bar-block">
+    <p class="w3-bar-item w3-padding"><b>Autor:</b> Lorena Martinović</p>
+    <p class="w3-bar-item w3-padding"><b>Podaci:</b> Znamenitosti</p>
+    <p class="w3-bar-item w3-padding"><b>Jezik podataka:</b> Engleski</p>
+    <p class="w3-bar-item w3-padding"><b>Licenca:</b> Creative Commons</p>
+    <a href="/datatable" class="w3-bar-item w3-button w3-padding w3-text-teal"> <b>DATATABLE</b></a> 
+  </div>
+
+</nav>
+
+<div class="w3-overlay w3-hide-large w3-animate-opacity" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- Header -->
+  <header id="portfolio">
+    <div class="w3-container">
+    <h1><b>Znamenitosti</b></h1>
+    <div class="w3-section w3-bottombar w3-padding-16"></div>
+      <p>CSV: <a href="/data/landmarks.csv" download>landmarks.csv</a></p>
+      <p>JSON: <a href="/data/landmarks.json" download>landmarks.json</a></p>
+    </div>
+  </header>
+  
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="/images/big-ben.jpg" alt="Norway" style="width:300px;height: 200px;" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Big ben</b></p>
+      </div>
+    </div>
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="/images/coloseum.jpg" alt="Norway" style="width:300px;height: 200px;" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Coloseum</b></p>
+      </div>
+    </div>
+    <div class="w3-third w3-container">
+      <img src="/images/eiffel-tower.jpg" alt="Norway" style="width: 300px;height: 200px;" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Eiffel tower</b></p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Second Photo Grid-->
+  <div class="w3-row-padding">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="/images/london-eye.jpg" alt="Norway" style="width: 300px;height: 200px;" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>London eye</b></p>
+      </div>
+    </div>
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="/images/sagrada-familia.jpg" alt="Norway" style="width: 300px;height: 200px;" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Sagrada familia</b></p>
+      </div>
+    </div>
+    <div class="w3-third w3-container">
+      <img src="/images/statue-of-liberty.jpg" alt="Norway" style="width: 300px;height: 200px;" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Statue of Liberty</b></p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="w3-container w3-padding-large" style="margin-bottom:32px">
+    <h4><b>Opis podataka</b></h4>
+    <p>Skup podataka se sastoji od atributa:</p>
+    <ul>
+      <li>Identifikator znamenitosti</li>
+      <li>naziv znamenitosti</li>
+      <li>stoljeće u kojem je izgrađena znamenitost</li>
+      <li>tip znamenitosti</li>
+      <li>visina znamenitosti</li>
+      <li>umjetnički stil znamenitosti</li>
+      <li>grad u kojem se nalazi</li>
+      <li>država u kojem se nalazi</li>
+      <li>ime arhitekta</li>
+      <li>prezime arhitekta</li>
+    </ul>
+    <p>Znamenitost ima atribute kao što su identifikator,naziv, stoljeće, tip, visina te umjetnički stil.</p>
+    <p>Primarni ključ znamenitosti je identifikator.</p> 
+    <p>Pri izgradnji znamenitosti je sudjelovalo jedan ili više arhitekata.</p>
+    <p>Arhitekti su određeni također identifikatorom, imenom i prezimenom.</p>
+    <p>Primarni ključ arhitekta je identifikator.</p>
+    <p>S druge strane, znamenitost se nalazi u određenom gradu koji je u određenoj državi.</p>
+    <p>Za entitete grad i državu su primarni ključevi imena.</p>
+    <p>S obzirom da su svi podaci o znamenitostima preuzeti sa Wikipedije, napisani su engleskim jezikom te imaju licencu Creative Commons Attribution-ShareAlike 3.0 Unported License.</p>
+    <hr>  
+  <div class="w3-black w3-center w3-padding-24"></div>
+
+</div>
+
+</body>
+</html>

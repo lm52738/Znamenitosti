@@ -1,0 +1,22 @@
+{
+  "name": "landmarks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chance": "^1.1.8",
+    "datatables.net": "^1.11.3",
+    "datatables.net-dt": "^1.11.3",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "pg": "^8.7.1",
+    "shuffle-array": "^1.0.1",
+    "start": "^5.1.0"
+  }
+}

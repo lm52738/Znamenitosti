@@ -1,0 +1,56 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/example.json",
+    "title": "Landmarks",
+    "description": "Landmarks in world",
+    "type": "object",
+    "properties": {
+      "landmarkid": {
+        "description": "The unique identifier for a landmark",
+        "type": "integer"
+      },
+      "landmarkname": {
+        "description": "Name of the landmark",
+        "type": "string"
+      },
+      "century": {
+        "description": "The century at which landmark was built",
+        "type": "number",
+        "exclusiveMinimum": 1
+      },
+      "type": {
+        "description": "Type of the landmark",
+        "type": "string"
+      },
+      "height": {
+        "description": "Height of the landmark",
+        "type": "integer"
+      },
+      "artstyle": {
+        "description": "Art style of the landmark",
+        "type": "string"
+      },
+      "cityname": {
+        "description": "The name of the city where the landmark is",
+        "type": "string"
+      },
+      "countryname": {
+        "description": "The name of the country where the landmark is",
+        "type": "string"
+      },
+      "architects": {
+        "type": "object",
+        "description": "Architects of the landmark",
+        "properties": {
+          "architectname": {
+            "type": "string"
+          },
+          "architectsurname": {
+            "type": "string"
+          }
+        },
+        "required": [ "architectname" ]
+      }
+    },
+    "required": [ "landmarkid", "landmarkname"]
+  }
