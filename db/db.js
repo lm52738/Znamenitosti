@@ -7,7 +7,8 @@ const pool = new Pool({
     password: 'bazepodataka',
     port: 5432,
 });
-
+module.exports = pool;
+/*
 module.exports = {
     query: (text, params) => {
         const start = Date.now();
@@ -20,3 +21,4 @@ module.exports = {
     },
     pool: pool
 }
+*/

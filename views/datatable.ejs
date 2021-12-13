@@ -9,46 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-    $(document).ready(function() {  
-      $("#submit").click(function() {
-        var value = $('#search').val().toLowerCase();
-        var option = $('#atributes').val();
-        if (option == "all"){
-          $("#tbody tr").filter(function() {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-          });
-        } else {
-          $("#tbody tr").filter(function() {
-              if (option == "name")
-                $(this).toggle($(this).find("td:eq(1)").text().toLowerCase().indexOf(value) > -1)
-              if (option == "century")
-                $(this).toggle($(this).find("td:eq(2)").text().toLowerCase().indexOf(value) > -1)
-              if (option == "type")
-                $(this).toggle($(this).find("td:eq(3)").text().toLowerCase().indexOf(value) > -1)
-              if (option == "art style")
-                $(this).toggle($(this).find("td:eq(5)").text().toLowerCase().indexOf(value) > -1)
-              if (option == "city")
-                $(this).toggle($(this).find("td:eq(6)").text().toLowerCase().indexOf(value) > -1)
-              if (option == "country")
-                $(this).toggle($(this).find("td:eq(7)").text().toLowerCase().indexOf(value) > -1)
-          });
-        }
-      });
-      
-      $('#json').click(function() {
-        var tbl = $('#table tr').map(function () {
-                    return $(this).find('td').map(function () {
-                        return $(this).html();
-                    }).get();
-                }).get();
-        console.log(tbl)
-      });
-    });
-  </script>
 </head>
-
 <body class="w3-light-grey w3-content" style="max-width:1600px">
 
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
@@ -57,29 +18,27 @@
     <hr>
   </div>
   <div class="w3-bar-block">
-    <form>
-      <label class="w3-bar-item" for="search"><b>Polje za pretragu</b></label>
-      <input class="w3-bar-item w3-input" type="text" id="search" name="search" placeholder="Unesite vrijednost"><br>
-      <label class="w3-bar-item" for="atributes"> <b>Odaberite polje za pretragu</b></label>
-      <select class="w3-bar-item w3-select" id="atributes" name="atributes">
-        <option value="all">Sva polja (wildcard)</option>
-        <option value="name">Ime</option>
-        <option value="city">Grad</option>
-        <option value="country">Država</option>
-        <option value="century">Stoljeće</option>
-        <option value="type">Tip</option>
-        <option value="art style">Umjetnički stil</option>
-      </select><br><br>
-      
-      <input class="w3-bar-item w3-submit w3-btn" id="submit" type="button" value="Pretraži">
-    </form>
-
-    <div class="w3-section w3-padding-16">
-      <button  class="w3-bar-item" id="csv" download>csv</button>
-      <button  class="w3-bar-item" id="json" download>json</button>
-    </div>
+    <form action="/" method="post">
+      <div class="form-group">
+        <label for="searchterm">Vrijednost koju tražite</label>
+        <input type="text" class="form-control" id="searchterm" name="searchterm" aria-describedby="searchterm" placeholder="Unesite vrijednost">
+      </div>
+      <div>
+          <label for="searchattr">Polje po kojem želite pretraživati</label>
+          <select class="form-control" name="searchattr">
+              <option value="">Odaberite polje za pretragu</option>
+              <% for (attr of attributes2) { %>
+                  <option value="<%=attr.sql%>"><%= attr.display %></option>
+              <% } %>
+          </select>
+      </div>
+      <div>
+          <button type="submit" class="btn btn-primary">Pretraži</button>
+          <a href="../landmarks.json" download="hoteli" class="btn btn-primary"><span>Skini podatke u JSON formatu</span></a>
+          <a href="../landmarks.csv" download="hoteli" class="btn btn-primary"><span>Skini podatke u CSV formatu</span></a>
+      </div>
+  </form>
   </div>
-
 </nav>
 
 <div class="w3-overlay w3-hide-large w3-animate-opacity" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
