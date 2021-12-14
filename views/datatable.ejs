@@ -20,24 +20,25 @@
   <div class="w3-bar-block">
     <form action="/" method="post">
       <div class="form-group">
-        <label for="searchterm">Vrijednost koju tražite</label>
-        <input type="text" class="form-control" id="searchterm" name="searchterm" aria-describedby="searchterm" placeholder="Unesite vrijednost">
+        <label class="w3-bar-item" for="searchterm">Vrijednost koju tražite</label>
+        <input type="text" class="w3-bar-item" id="searchterm" name="searchterm" aria-describedby="searchterm" placeholder="Unesite vrijednost">
       </div>
-      <div>
-          <label for="searchattr">Polje po kojem želite pretraživati</label>
-          <select class="form-control" name="searchattr">
+      <div class="w3-bar-block">
+          <label class="w3-bar-item" for="searchattr">Polje po kojem želite pretraživati</label>
+          <select class="w3-bar-item" name="searchattr">
               <option value="">Odaberite polje za pretragu</option>
               <% for (attr of attributes2) { %>
                   <option value="<%=attr.sql%>"><%= attr.display %></option>
               <% } %>
-          </select>
+          </select><br><br>
+
+          <button class="w3-bar-item w3-submit w3-btn" id="submit" type="submit">Pretraži</button>
       </div>
-      <div>
-          <button type="submit" class="btn btn-primary">Pretraži</button>
-          <a href="../landmarks.json" download="hoteli" class="btn btn-primary"><span>Skini podatke u JSON formatu</span></a>
-          <a href="../landmarks.csv" download="hoteli" class="btn btn-primary"><span>Skini podatke u CSV formatu</span></a>
-      </div>
-  </form>
+    </form>
+    <div class="w3-section w3-padding-16">
+      <button href="/data/landmarks.json" download="landmarks" class="w3-bar-item" id="csv"><span>JSON</span></button>
+      <button href="/data/landmarks.csv" download="landmarks" class="w3-bar-item" id="json"><span>CSV formatu</span></button>  
+    </div>
   </div>
 </nav>
 
@@ -56,35 +57,21 @@
   <div class="w3-row-padding">
     <table id="table" class="w3-table-all" style="width: 100%;">
       <thead>
-          <tr>
-              <th>ID</th>
-              <th>NAME</th>
-              <th>CENTURY</th>
-              <th>TYPE</th>
-              <th>HEIGHT</th>
-              <th>ART STYLE</th>
-              <th>CITY</th>
-              <th>COUNTRY</th>
-              <th>ARCHITECT NAME</th>
-              <th>ARCHITECT SURNAME</th>
-          </tr>
+        <tr>
+          <% for (attr of attributes2) {%>
+          <th scope="col"><%= attr.display %></th>
+          <% }  %> 
+        </tr>
       </thead>
       <tbody id="tbody">
-        <% for (let row of data) { %>
-          <tr>
-            <td><%= row.landmarkid %></td>
-            <td><%= row.landmarkname %></td>
-            <td><%= row.century %></td>
-            <td><%= row.type %></td>
-            <td><%= row.height %></td>
-            <td><%= row.artstyle %></td>
-            <td><%= row.cityname %></td>
-            <td><%= row.countryname %></td>
-            <td><%= row.architectname %></td>
-            <td><%= row.architectsurname %></td>
-          </tr>
-        <% } %>
-      </tbody>
+          <% for (row of rows) {%> 
+              <tr>
+              <% for (attr of attributes) {%>
+                <td><%= row[attr] %></td>
+              <% } %>
+              </tr>
+          <% } %> 
+        </tbody>
     </table>
   </div>
 </body>

@@ -1,3 +1,4 @@
+landmarkid,landmarkname,century,type,height,artstyle,cityname,countryname,architectname,architectsurname
 1,Eiffel Tower,19,Observation tower,324,undefined,Paris,France,Stephen,Sauvestre
 2,London Eye,20,Observation wheel,135,modern,London,United Kingdom,Frank,Anatole
 2,London Eye,20,Observation wheel,135,modern,London,United Kingdom,Joanna,Bailey
@@ -8,7 +9,7 @@
 2,London Eye,20,Observation wheel,135,modern,London,United Kingdom,David,Marks
 2,London Eye,20,Observation wheel,135,modern,London,United Kingdom,Mark,Sparrowhawk
 3,Sagrada Familia,19,Minor basilica,170,neoclassic,Barcelona,Spain,Antoni,Gaudi
-4,Statue of Liberty,19,Statue,93,neoclassic,New York,United States of America,Frederic Auguste,Bartholdi
+4,Statue of Liberty,19,Statue,93,neoclassic,New York,United States of America,Frédéric Auguste,Bartholdi
 5,Saint Basils Cathedral,16,Cathedral,48,undefined,Moscow,Russia,Ivan,Barma
 5,Saint Basils Cathedral,16,Cathedral,48,undefined,Moscow,Russia,Postnik,Yakovlev
 6,Taj Mahal,17,Mausoleum,73,mughal,Agra,India,Ustad Ahmad,Lahauri

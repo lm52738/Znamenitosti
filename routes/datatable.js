@@ -31,25 +31,25 @@ FROM landmark
 LEFT JOIN city ON landmark.cityName = city.cityName
 LEFT JOIN country ON city.countryName = country.countryName
 LEFT JOIN landmarkArch ON landmarkArch.landmarkId = landmark.landmarkId
-LEFT JOIN architect ON  architect.architectId = landmarkArch.architectId;`;
+LEFT JOIN architect ON  architect.architectId = landmarkArch.architectId`;
 
 // putanje za saveanje filtriranih fileova
-const jsonPath = 'D:/GitHub/Znamenitosti/landmarks.json';
-const csvPath = 'D:/GitHub/Znamenitosti/landmarks.csv';
+const jsonPath = 'C:/Users/marti/Documents/GitHub/studosi - lab2 or/Znamenitosti/public/data/landmarks.json';
+const csvPath = 'C:/Users/marti/Documents/GitHub/studosi - lab2 or/Znamenitosti/public/data/landmarks.csv';
 
 // za prikaz podataka
-const attributes = ['landmarkId','landmarkName','century','type','height',
-'artStyle','city','country','architectName','architectSurnamel'];
-const attributes2 = [{display: 'Id', sql: 'landmark.landmarkId'},
-                    {display: 'Naziv', sql: 'landmark.landmarkName'},
-                    {display: 'Stoljeće', sql: 'landmark.century'},
-                    {display: 'Tip', sql: 'landmark.type'},
-                    {display: 'Visina', sql: 'landmark.height'},
-                    {display: 'Umjetnički stil', sql: 'landmark.artStyle'},
-                    {display: 'Grad', sql: 'city.cityName'},
-                    {display: 'Država', sql: 'country.countryName'},
-                    {display: 'Ime Arhitekta', sql: 'architect.architectName'},
-                    {display: 'Prezime Arhitekta', sql: 'architect.architectSurname'}
+const attributes = ['landmarkid','landmarkname','century','type','height',
+'artstyle','cityname','countryname','architectname','architectsurname'];
+const attributes2 = [{display: 'Id', sql: 'landmarkid'},
+                    {display: 'Naziv', sql: 'landmarkname'},
+                    {display: 'Stoljeće', sql: 'century'},
+                    {display: 'Tip', sql: 'type'},
+                    {display: 'Visina', sql: 'height'},
+                    {display: 'Umjetnički stil', sql: 'artstyle'},
+                    {display: 'Grad', sql: 'cityname'},
+                    {display: 'Država', sql: 'countryname'},
+                    {display: 'Ime Arhitekta', sql: 'architectname'},
+                    {display: 'Prezime Arhitekta', sql: 'architectsurname'}
                     ];
 
 
@@ -71,7 +71,7 @@ router.get('/',async (req,res) => {
 
 router.post('/',async (req,res) => {
     const searchattr = req.body.searchattr;
-
+    /*
     // nisu postavljeni nikakvi parametri
     if (!req.body.searchterm && !req.body.searchattr) {
         var sqlic = displaySelect;
@@ -86,7 +86,7 @@ router.post('/',async (req,res) => {
     } else {
 
     }
-
+    */
     await pool.query(json);
     await pool.query(csv);
     
