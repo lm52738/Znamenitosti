@@ -1,56 +1,88 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://example.com/example.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://github.com/lm52738/Znamenitosti/landmarks.json",
     "title": "Landmarks",
-    "description": "Landmarks in world",
-    "type": "object",
-    "properties": {
-      "landmarkid": {
-        "description": "The unique identifier for a landmark",
-        "type": "integer"
-      },
-      "landmarkname": {
-        "description": "Name of the landmark",
-        "type": "string"
-      },
-      "century": {
-        "description": "The century at which landmark was built",
-        "type": "number",
-        "exclusiveMinimum": 1
-      },
-      "type": {
-        "description": "Type of the landmark",
-        "type": "string"
-      },
-      "height": {
-        "description": "Height of the landmark",
-        "type": "integer"
-      },
-      "artstyle": {
-        "description": "Art style of the landmark",
-        "type": "string"
-      },
-      "cityname": {
-        "description": "The name of the city where the landmark is",
-        "type": "string"
-      },
-      "countryname": {
-        "description": "The name of the country where the landmark is",
-        "type": "string"
-      },
-      "architects": {
-        "type": "object",
-        "description": "Architects of the landmark",
-        "properties": {
-          "architectname": {
-            "type": "string"
-          },
-          "architectsurname": {
-            "type": "string"
-          }
+    "description": "Open data of landmarks",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "title": "Landmark",
+      "description": "Object which contains landmark's data",
+      "required": ["landmarkid","landmarkname","century","type","height","artstyle","cityname","countryname","architectname","architectsurname"],
+      "properties": {
+        "landmarkid": {
+          "$id": "#/items/anyOf/0/properties/landmarkid",
+          "title": "Id",
+          "description": "The unique identifier for a landmark",
+          "type": "integer"
         },
-        "required": [ "architectname" ]
+        "landmarkname": {
+          "$id": "#/items/anyOf/0/properties/landmarkname",
+          "title": "Name",
+          "description": "Name of the landmark",
+          "type": "string"
+        },
+        "century": {
+          "$id": "#/items/anyOf/0/properties/century",
+          "title": "Century",
+          "description": "The century at which landmark was built",
+          "type": "number",
+          "exclusiveMinimum": 1
+        },
+        "type": {
+          "$id": "#/items/anyOf/0/properties/type",
+          "title": "Type",
+          "description": "Type of the landmark",
+          "type": "string"
+        },
+        "height": {
+          "$id": "#/items/anyOf/0/properties/height",
+          "title": "Height",
+          "description": "Height of the landmark",
+          "type": "integer"
+        },
+        "artstyle": {
+          "$id": "#/items/anyOf/0/properties/artstyle",
+          "title": "Art style",
+          "description": "Art style of the landmark",
+          "type": "string"
+        },
+        "cityname": {
+          "$id": "#/items/anyOf/0/properties/cityname",
+          "title": "City",
+          "description": "The name of the city where the landmark is",
+          "type": "string"
+        },
+        "countryname": {
+          "$id": "#/items/anyOf/0/properties/countryname",
+          "title": "Country",
+          "description": "The name of the country where the landmark is",
+          "type": "string"
+        },
+        "architects": {
+          "$id": "#/items/anyOf/0/properties/architects",
+          "title": "Architects",
+          "type": "object",
+          "description": "Architects of the landmark",
+          "items": {
+            "$id": "#/items/anyOf/0/properties/architects/items",
+            "required": ["architectname", "architectsurname"],
+            "properties": {
+              "architectname": {
+                "$id": "#/items/anyOf/0/properties/architects/items/architectname",
+                "title": "Architect name",
+                "description": "Architects of the landmark",
+                "type": "string"
+              },
+              "architectsurname": {
+                "$id": "#/items/anyOf/0/properties/architects/items/architectsurname",
+                "title": "Architect surname",
+                "description": "Architects of the landmark",
+                "type": "string"
+              }
+            }
+          }
+        }
       }
-    },
-    "required": [ "landmarkid", "landmarkname"]
+    }
   }
