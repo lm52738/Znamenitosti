@@ -1,0 +1,120 @@
+{
+    "openapi": "1.0.0",
+    "info": {
+        "title": "Landmarks open data",
+        "version": "1.0.1",
+        "license": "CC0-1.0 License",
+        "contact": {
+            "name": "API Support",
+            "url": "/",
+            "email": "lm52738@fer.hr"
+        }
+    },
+    "paths": {
+        "/api/znamenitosti": {
+            "get": {
+                "description": "Returns a collection",
+                "responses": {
+                    "200": {
+                        "message": "Landmarks fetched."
+                    }
+                }
+            },
+            "post": {
+                "description": "Creates a new collection resource",
+                "responses": {
+                    "200": {
+                        "message": "The landmark with provided informations already exists."
+                    },
+                    "201": {
+                        "message": "The new landmark is effectively created."
+                    }
+                }
+            }
+        },
+        "/api/znamenitosti/{id}": {
+            "get": {
+                "description": "Returns a resource with the provided id",
+                "responses": {
+                    "200": {
+                        "message": "The resource has been fetched."
+                    },
+                    "400": {
+                        "message" : "The server cannot or will not process the request due to something that is perceived to be a client error."
+                    },
+                    "404": {
+                        "message" : "The landmark with provided id does'nt exists."
+                    }
+                }
+            },
+            "put": {
+                "description": "Returns a changed resource with the provided id",
+                "responses": {
+                    "200": {
+                        "message": "The landmark with id = %s successfully updated."
+                    },
+                    "400": {
+                        "message" : "The server cannot or will not process the request due to something that is perceived to be a client error."
+                    },
+                    "404": {
+                        "message" : "The landmark with provided id does'nt exists."
+                    }
+                }
+            },
+            "delete": {
+                "description": "Deletes a resource with the provided id",
+                "responses": {
+                    "200": {
+                        "message": "The landmark with id = %s successfully deleted."
+                    },
+                    "400": {
+                        "message" : "The server cannot or will not process the request due to something that is perceived to be a client error."
+                    },
+                    "404": {
+                        "message" : "The landmark with provided id does'nt exists."
+                    }
+                }
+            }
+        },
+        "/api/znamenitosti/gradovi": {
+            "get": {
+                "description": "Returns a json of cities in the collection",
+                "responses": {
+                    "200": {
+                        "message": "Cities have been fetched."
+                    }
+                }
+            }
+        },
+        "/api/znamenitosti/drzave": {
+            "get": {
+                "description": "Returns a json of countries in the collection",
+                "responses": {
+                    "200": {
+                        "message": "Countries have been fetched."
+                    }
+                }
+            }
+        },
+        "/api/znamenitosti/arhitekti": {
+            "get": {
+                "description": "Returns a json of architects in the collection",
+                "responses": {
+                    "200": {
+                        "message": "Architects has been fetched."
+                    }
+                }
+            }
+        },
+        "/api/hoteli/openapi": {
+            "get": {
+                "description": "Returns the OpenAPI specification",
+                "responses": {
+                    "200": {
+                        "message": "The OpenAPI specification has been fetched."
+                    }
+                }
+            }
+        }
+    }
+}

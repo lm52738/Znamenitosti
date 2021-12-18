@@ -4,7 +4,6 @@ const fs = require("fs");
 var format = require('pg-format');
 var router = express.Router();
 
-// var count = 0;
 var count = fs.readFile("landmarks.json", "utf-8", (err, data) => {
     if (err) throw err;
     count = JSON.parse(data).length;
@@ -38,11 +37,9 @@ LEFT JOIN country ON city.countryName = country.countryName
 LEFT JOIN landmarkArch ON landmarkArch.landmarkId = landmark.landmarkId
 LEFT JOIN architect ON  architect.architectId = landmarkArch.architectId`;
 
-// putanje za saveanje filtriranih fileova
 const jsonPath = 'C:/Users/marti/Documents/GitHub/studosi - lab2 or/Znamenitosti/public/data/landmarks.json';
 const csvPath = 'C:/Users/marti/Documents/GitHub/studosi - lab2 or/Znamenitosti/public/data/landmarks.csv';
 
-// za prikaz podataka
 const attributes = ['landmarkid','landmarkname','century','type','height',
 'artstyle','cityname','countryname','architectname','architectsurname'];
 const attributes2 = [{display: 'Id', sql: 'landmark.landmarkid'},
@@ -64,7 +61,6 @@ router.get('/',async (req,res) => {
     await pool.query(json);
     await pool.query(csv);
     const results = await pool.query(displaySelect);
-    // promjena original fileova u slucaju updateanja baze
 
     res.render('datatable', {
         title: 'Data',
@@ -77,7 +73,6 @@ router.get('/',async (req,res) => {
 router.post('/',async (req,res) => {
     const searchattr = req.body.searchattr;
     
-    // nisu postavljeni nikakvi parametri
     if (!req.body.searchterm && !req.body.searchattr) {
         var sqlic = displaySelect;
         var result = await pool.query(sqlic);
@@ -87,16 +82,17 @@ router.post('/',async (req,res) => {
         
         
     } else if (!req.body.searchattr) {
-        // broj je
+
+        // broj
         if (!isNaN(req.body.searchterm)) {
-            // za prikaz u tablici
+            
             const searchterm = req.body.searchterm;
             let search = `landmark.landmarkid=$1 or landmark.height=$1
                             or landmark.century=$1`
             var sqlic = format(`%s WHERE %s `, displaySelect, search);
             var result = await pool.query(sqlic, [searchterm]);
 
-            // za skidanje podataka
+            // json i csv
             var json = format(`COPY (SELECT array_to_json(array_agg(row_to_json(landmarks)))
                         FROM (%s 
                         WHERE landmark.landmarkid=%s
@@ -109,9 +105,9 @@ router.post('/',async (req,res) => {
                         TO '%s' DELIMITER ',' ENCODING 'utf-8' CSV HEADER`,
                         displaySelect, searchterm, searchterm, searchterm, csvPath);
 
-        // rijec je
+        // rijec
         } else {
-            // za prikaz u tablici
+            
             const searchterm = '%' + req.body.searchterm.toLowerCase() + '%';
             let search = `LOWER(landmark.landmarkname) like $1 or LOWER(landmark.type) like $1 or LOWER(landmark.artstyle) like $1
                         or LOWER(city.cityname) like $1 or LOWER(country.countryname) like $1
@@ -119,7 +115,7 @@ router.post('/',async (req,res) => {
             var sqlic = format(`%s WHERE %s`, displaySelect, search);
             var result = await pool.query(sqlic, [searchterm]);
 
-            // za skidanje podataka
+            // json i csv
             var json = format(`COPY (SELECT array_to_json(array_agg(row_to_json(landmarks)))
                         FROM (%s 
                         WHERE LOWER(landmark.landmarkname) like '%s' or LOWER(landmark.type) like '%s'
@@ -157,7 +153,8 @@ router.post('/',async (req,res) => {
                         displaySelect, searchterm, searchterm, searchterm, searchterm, searchterm, searchterm, searchterm, csvPath);
         }
     } else {
-        // odabran je atribut koji je broj
+        
+        //atribut je broj
         console.log(searchattr)
         if (searchattr === "landmark.landmarkid" || searchattr === "height" || searchattr === "century") {
 
@@ -175,13 +172,14 @@ router.post('/',async (req,res) => {
                         TO '%s' DELIMITER ',' ENCODING 'utf-8' CSV HEADER`,
                         displaySelect, searchattr, searchterm, csvPath);
         
-            // odabran je atribut koji je rijec
+        //atribut je rijec
         } else {
-            // const searchterm = format('%%s%', req.body.searchterm);
+            
             const searchterm = '%' + req.body.searchterm.toLowerCase() + '%';
             var sqlic = format(`%s WHERE LOWER(%s) like LOWER('%s')`, displaySelect, searchattr, searchterm);
             var result = await pool.query(sqlic);
 
+            // json i csv
             if (searchattr == 'architect.architectname') {
                 console.log("dobro sm");
                 var json = format(`COPY (SELECT array_to_json(array_agg(row_to_json(landmarks)))
