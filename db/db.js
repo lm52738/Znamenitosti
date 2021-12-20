@@ -4,21 +4,7 @@ const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
     database: 'znamenitosti',
-    password: 'bazepodataka',
-    port: 5432,
+    password: '60144201',
+    port: 5433,
 });
 module.exports = pool;
-/*
-module.exports = {
-    query: (text, params) => {
-        const start = Date.now();
-        return pool.query(text, params)
-            .then(res => {
-                const duration = Date.now() - start;
-                //console.log('executed query', {text, params, duration, rows: res.rows});
-                return res;
-            });
-    },
-    pool: pool
-}
-*/

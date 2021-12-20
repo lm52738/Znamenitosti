@@ -32,6 +32,46 @@
                 }
             }
         },
+        "/api/znamenitosti/gradovi": {
+            "get": {
+                "description": "Returns a json of cities in the collection",
+                "responses": {
+                    "200": {
+                        "message": "Cities have been fetched."
+                    }
+                }
+            }
+        },
+        "/api/znamenitosti/drzave": {
+            "get": {
+                "description": "Returns a json of countries in the collection",
+                "responses": {
+                    "200": {
+                        "message": "Countries have been fetched."
+                    }
+                }
+            }
+        },
+        "/api/znamenitosti/arhitekti": {
+            "get": {
+                "description": "Returns a json of architects in the collection",
+                "responses": {
+                    "200": {
+                        "message": "Architects have been fetched."
+                    }
+                }
+            }
+        },
+        "/api/hoteli/openapi": {
+            "get": {
+                "description": "Returns the OpenAPI specification",
+                "responses": {
+                    "200": {
+                        "message": "The OpenAPI specification has been fetched."
+                    }
+                }
+            }
+        },
         "/api/znamenitosti/{id}": {
             "get": {
                 "description": "Returns a resource with the provided id",
@@ -72,46 +112,6 @@
                     },
                     "404": {
                         "message" : "The landmark with provided id does'nt exists."
-                    }
-                }
-            }
-        },
-        "/api/znamenitosti/gradovi": {
-            "get": {
-                "description": "Returns a json of cities in the collection",
-                "responses": {
-                    "200": {
-                        "message": "Cities have been fetched."
-                    }
-                }
-            }
-        },
-        "/api/znamenitosti/drzave": {
-            "get": {
-                "description": "Returns a json of countries in the collection",
-                "responses": {
-                    "200": {
-                        "message": "Countries have been fetched."
-                    }
-                }
-            }
-        },
-        "/api/znamenitosti/arhitekti": {
-            "get": {
-                "description": "Returns a json of architects in the collection",
-                "responses": {
-                    "200": {
-                        "message": "Architects has been fetched."
-                    }
-                }
-            }
-        },
-        "/api/hoteli/openapi": {
-            "get": {
-                "description": "Returns the OpenAPI specification",
-                "responses": {
-                    "200": {
-                        "message": "The OpenAPI specification has been fetched."
                     }
                 }
             }
