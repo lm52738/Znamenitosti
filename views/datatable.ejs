@@ -7,8 +7,7 @@
   <meta name="keywords" content="landmarks,open data">
   <meta name="discription" content="Open data for landmarks">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/stylesheets/style.css">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="public/stylesheets/style.css">
 </head>
 <body class="w3-light-grey w3-content" style="max-width:1600px">
 
@@ -36,9 +35,23 @@
       </div>
     </form>
     <div class="w3-section w3-padding-16">
-      <button href="/data/landmarks.json" download="landmarks" class="w3-bar-item" id="csv"><span>JSON</span></button>
-      <button href="/data/landmarks.csv" download="landmarks" class="w3-bar-item" id="json"><span>CSV formatu</span></button>  
+      <button class="w3-bar-item"><a href="public/data/landmarks.csv" download>landmarks.csv</a></button>
+      <button class="w3-bar-item"><a href="public/data/landmarks.json" download>landmarks.json</a></button>
     </div>
+  </div>
+  <div class="w3-container">
+    <hr>
+  </div>
+  <div class="w3-bar-block">
+    <a href="/" class="w3-bar-item w3-button w3-padding w3-text-teal"> <b>POČETNA</b></a> 
+    <% if(isAuthenticated) {%>
+    <a href="/user" class="w3-bar-item w3-button w3-padding w3-text-teal"> <b>KORISNIČKI PROFIL</b></a> 
+    <a href="../landmarks.zip" download class="w3-bar-item w3-button w3-padding w3-text-teal"> <b>OSVJEŽI PRESLIKE</b></a> 
+    <a href="/logout" class="w3-bar-item w3-button w3-padding w3-text-teal"> <b>ODJAVA</b></a> 
+    <% } else { %>
+    <a href="/login" class="w3-bar-item w3-button w3-padding w3-text-teal"> <b>PRIJAVA</b></a> 
+    <% } %>   
+    <br>
   </div>
 </nav>
 

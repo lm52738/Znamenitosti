@@ -4,7 +4,7 @@ const fs = require("fs");
 var format = require('pg-format');
 var router = express.Router();
 
-var count = fs.readFile("landmarks.json", "utf-8", (err, data) => {
+var count = fs.readFile("./public/landmarks/landmarks.json", "utf-8", (err, data) => {
     if (err) throw err;
     count = JSON.parse(data).length;
     console.log(count);
@@ -56,8 +56,10 @@ const attributes2 = [{display: 'Id', sql: 'landmark.landmarkid'},
 
 
 router.get('/',async (req,res) => {
-    var json = format(`COPY (SELECT array_to_json(array_agg(row_to_json(landmarks))) FROM (%s) landmarks) to '%s'`, downloadSelect, jsonPath);
-    var csv = format(`COPY (%s) TO '%s' DELIMITER ',' ENCODING 'utf-8' CSV HEADER`, displaySelect, csvPath);
+    var json = format(`COPY (SELECT array_to_json(array_agg(row_to_json(landmarks))) FROM (%s) landmarks) 
+    to 'C:/Users/marti/Documents/GitHub/studosi - lab2 or/Znamenitosti/public/landmarks/landmarks.json'`, downloadSelect);
+    var csv = format(`COPY (%s) TO 'C:/Users/marti/Documents/GitHub/studosi - lab2 or/Znamenitosti/public/landmarks/landmarks.csv'
+     DELIMITER ',' ENCODING 'utf-8' CSV HEADER`, displaySelect);
     await pool.query(json);
     await pool.query(csv);
     const results = await pool.query(displaySelect);
@@ -66,7 +68,8 @@ router.get('/',async (req,res) => {
         title: 'Data',
         rows: results.rows,
         attributes: attributes,
-        attributes2: attributes2
+        attributes2: attributes2,
+        isAuthenticated: req.oidc.isAuthenticated()
     });
 });
 
@@ -243,7 +246,8 @@ router.post('/',async (req,res) => {
         title: 'Data',
         rows: results.rows,
         attributes: attributes,
-        attributes2: attributes2
+        attributes2: attributes2,
+        isAuthenticated: req.oidc.isAuthenticated()
     });
 });
 

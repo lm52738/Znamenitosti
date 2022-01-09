@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Korisnički profil</title>
+  <meta charset="UTF-8">
+  <meta name="author" content="Lorena Martinović">
+  <meta name="keywords" content="landmarks,open data">
+  <meta name="discription" content="Open data for landmarks">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="public/stylesheets/style.css">
+</head>
+
+
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+    <div class="w3-container">
+    <hr>
+    </div>
+    <div class="w3-bar-block">
+      <a href="/" class="w3-bar-item w3-button w3-padding w3-text-teal"> <b>POČETNA</b></a> 
+      <a href="/datatable" class="w3-bar-item w3-button w3-padding w3-text-teal"> <b>DATATABLE</b></a> 
+      <% if(isAuthenticated) {%>
+      <a href="/user" class="w3-bar-item w3-button w3-padding w3-text-teal"> <b>KORISNIČKI PROFIL</b></a> 
+      <a href="../landmarks.zip" download class="w3-bar-item w3-button w3-padding w3-text-teal"> <b>OSVJEŽI PRESLIKE</b></a> 
+      <a href="/logout" class="w3-bar-item w3-button w3-padding w3-text-teal"> <b>ODJAVA</b></a> 
+      <% } else { %>
+      <a href="/login" class="w3-bar-item w3-button w3-padding w3-text-teal"> <b>PRIJAVA</b></a> 
+      <% } %> 
+      <br>
+    </div>
+</nav>
+
+<div class="w3-overlay w3-hide-large w3-animate-opacity" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- Header -->
+  <header id="portfolio">
+    <div class="w3-container">
+    <h1><b>Korisnički profil</b></h1>
+    <div class="w3-section w3-bottombar w3-padding-16"></div>
+    </div>
+  </header>
+
+
+  <div class="w3-container w3-padding-large" style="margin-bottom:32px"> 
+    <h4><b>Podaci o korisniku</b></h4>
+    <img src="<%= user.picture %>" alt="slikaProfila">
+    <p>Korisničko ime:</p>
+    <ul>
+      <li><%= user.nickname%></li>
+    </ul>
+    <p>Email:</p>
+    <ul>
+      <li><%= user.email %> </li>
+    </ul>
+    <p>Email verificiran:</p>
+    <ul>
+      <li><%= user.email_verified %> </li>
+    </ul>
+    <p>Ažuriran:</p>
+    <ul>
+      <li><%= user.updated_at.substring(0, 10) %> <%= user.updated_at.substring(11, 19) %></li>
+    </ul>
+    <hr>  
+ </div>
+
+</div>
+
+</body>
+</html>

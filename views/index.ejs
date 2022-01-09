@@ -7,8 +7,7 @@
   <meta name="keywords" content="landmarks,open data">
   <meta name="discription" content="Open data for landmarks">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/stylesheets/style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="public/stylesheets/style.css">
 </head>
 
 
@@ -23,10 +22,22 @@
     <p class="w3-bar-item w3-padding"><b>Autor:</b> Lorena Martinović</p>
     <p class="w3-bar-item w3-padding"><b>Podaci:</b> Znamenitosti</p>
     <p class="w3-bar-item w3-padding"><b>Jezik podataka:</b> Engleski</p>
-    <p class="w3-bar-item w3-padding"><b>Licenca:</b> Creative Commons</p>
-    <a href="/datatable" class="w3-bar-item w3-button w3-padding w3-text-teal"> <b>DATATABLE</b></a> 
+    <p class="w3-bar-item w3-padding"><b>Licenca:</b> Creative Commons</p>    
   </div>
-
+  <div class="w3-container">
+    <hr>
+  </div>
+  <div class="w3-bar-block">
+    <a href="/datatable" class="w3-bar-item w3-button w3-padding w3-text-teal"> <b>DATATABLE</b></a> 
+    <% if(isAuthenticated) {%>
+    <a href="/user" class="w3-bar-item w3-button w3-padding w3-text-teal"> <b>KORISNIČKI PROFIL</b></a> 
+    <a href="../landmarks.zip" download class="w3-bar-item w3-button w3-padding w3-text-teal"> <b>OSVJEŽI PRESLIKE</b></a> 
+    <a href="/logout" class="w3-bar-item w3-button w3-padding w3-text-teal"> <b>ODJAVA</b></a> 
+    <% } else { %>
+    <a href="/login" class="w3-bar-item w3-button w3-padding w3-text-teal"> <b>PRIJAVA</b></a> 
+    <% } %> 
+    <br>
+  </div>
 </nav>
 
 <div class="w3-overlay w3-hide-large w3-animate-opacity" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
@@ -38,27 +49,27 @@
     <div class="w3-container">
     <h1><b>Znamenitosti</b></h1>
     <div class="w3-section w3-bottombar w3-padding-16"></div>
-      <p>CSV: <a href="/data/landmarks.csv" download>landmarks.csv</a></p>
-      <p>JSON: <a href="/data/landmarks.json" download>landmarks.json</a></p>
+      <p>CSV: <a href="public/data/landmarks.csv" download>landmarks.csv</a></p>
+      <p>JSON: <a href="public/data/landmarks.json" download>landmarks.json</a></p>
     </div>
   </header>
   
   <!-- First Photo Grid-->
   <div class="w3-row-padding">
     <div class="w3-third w3-container w3-margin-bottom">
-      <img src="/images/big-ben.jpg" alt="Norway" style="width:300px;height: 200px;" class="w3-hover-opacity">
+      <img src="public/images/big-ben.jpg" alt="Norway" style="width:300px;height: 200px;" class="w3-hover-opacity">
       <div class="w3-container w3-white">
         <p><b>Big ben</b></p>
       </div>
     </div>
     <div class="w3-third w3-container w3-margin-bottom">
-      <img src="/images/coloseum.jpg" alt="Norway" style="width:300px;height: 200px;" class="w3-hover-opacity">
+      <img src="public/images/coloseum.jpg" alt="Norway" style="width:300px;height: 200px;" class="w3-hover-opacity">
       <div class="w3-container w3-white">
         <p><b>Coloseum</b></p>
       </div>
     </div>
     <div class="w3-third w3-container">
-      <img src="/images/eiffel-tower.jpg" alt="Norway" style="width: 300px;height: 200px;" class="w3-hover-opacity">
+      <img src="public/images/eiffel-tower.jpg" alt="Norway" style="width: 300px;height: 200px;" class="w3-hover-opacity">
       <div class="w3-container w3-white">
         <p><b>Eiffel tower</b></p>
       </div>
@@ -68,19 +79,19 @@
   <!-- Second Photo Grid-->
   <div class="w3-row-padding">
     <div class="w3-third w3-container w3-margin-bottom">
-      <img src="/images/london-eye.jpg" alt="Norway" style="width: 300px;height: 200px;" class="w3-hover-opacity">
+      <img src="public/images/london-eye.jpg" alt="Norway" style="width: 300px;height: 200px;" class="w3-hover-opacity">
       <div class="w3-container w3-white">
         <p><b>London eye</b></p>
       </div>
     </div>
     <div class="w3-third w3-container w3-margin-bottom">
-      <img src="/images/sagrada-familia.jpg" alt="Norway" style="width: 300px;height: 200px;" class="w3-hover-opacity">
+      <img src="public/images/sagrada-familia.jpg" alt="Norway" style="width: 300px;height: 200px;" class="w3-hover-opacity">
       <div class="w3-container w3-white">
         <p><b>Sagrada familia</b></p>
       </div>
     </div>
     <div class="w3-third w3-container">
-      <img src="/images/statue-of-liberty.jpg" alt="Norway" style="width: 300px;height: 200px;" class="w3-hover-opacity">
+      <img src="public/images/statue-of-liberty.jpg" alt="Norway" style="width: 300px;height: 200px;" class="w3-hover-opacity">
       <div class="w3-container w3-white">
         <p><b>Statue of Liberty</b></p>
       </div>

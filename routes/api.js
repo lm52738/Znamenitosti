@@ -77,7 +77,7 @@ async function checkId(id, method, res){
 
 // GET /api/znamenitosti
 router.get('/',async(req,res) => {
-    fs.readFile("./landmarks.json","utf-8", function(err, data) {
+    fs.readFile("./public/landmarks/landmarks.json","utf-8", function(err, data) {
         if (err)
             throw err;
 
@@ -87,7 +87,19 @@ router.get('/',async(req,res) => {
             `{
                 "status":"200 OK",
                 "message":"Landmarks fetched.",
-                "response": [%s]
+                "response": [
+                    "@context": {
+                        "@vocab": "https://schema.org/",
+                        "landmarkname": "name",
+                        "century": "century",
+                        "type": "type",
+                        "height": "height",
+                        "artstyle": "artstyle",
+                        "cityname": "https://schema.org/City",
+                        "countryname": "https://schema.org/Country",
+                        "architectname": "givenName",
+                        "architectsurname": "familyName"
+                    }, %s]
             }`
         ,data);
         
@@ -110,7 +122,11 @@ router.get('/gradovi',async(req,res) => {
         `{
             "status":"200 OK",
             "message":"Cities have been fetched.",
-            "response": [%s]
+            "response": [
+                "@context": {
+                    "@vocab": "https://schema.org/City",
+                    "cityname": "name",
+                }, %s]
         }`
     ,data);
     
@@ -132,7 +148,11 @@ router.get('/drzave',async(req,res) => {
         `{
             "status":"200 OK",
             "message":"Countries has been fetched.",
-            "response": [%s]
+            "response": [
+                "@context": {
+                    "@vocab": "https://schema.org/Country",
+                    "countryname": "name",
+                },%s]
         }`
     ,data);
     
@@ -154,7 +174,12 @@ router.get('/arhitekti',async(req,res) => {
         `{
             "status":"200 OK",
             "message":"Architects have been fetched.",
-            "response": [%s]
+            "response": [
+                "@context": {
+                    "@vocab": "https://schema.org/Person",
+                    "architectname": "givenName",
+                    "architectsurname": "familyName",
+                }, %s]
         }`
     ,data);
     
@@ -180,7 +205,19 @@ router.get('/openapi',async(req,res) => {
             `{
                 "status":"200 OK",
                 "message":"The OpenAPI specification has been fetched.",
-                "response": [%s]
+                "response": [
+                    "@context": {
+                        "@vocab": "https://schema.org/",
+                        "landmarkname": "name",
+                        "century": "century",
+                        "type": "type",
+                        "height": "height",
+                        "artstyle": "artstyle",
+                        "cityname": "https://schema.org/City",
+                        "countryname": "https://schema.org/Country",
+                        "architectname": "givenName",
+                        "architectsurname": "familyName"
+                    }, %s]
             }`
         ,data);
         
@@ -215,7 +252,19 @@ router.get('/:id',async(req,res) => {
             `{
                 "status":"200 OK",
                 "message":"The landmark with id = %s has been fetched.",
-                "response": [%s]
+                "response": [
+                    "@context": {
+                        "@vocab": "https://schema.org/",
+                        "landmarkname": "name",
+                        "century": "century",
+                        "type": "type",
+                        "height": "height",
+                        "artstyle": "artstyle",
+                        "cityname": "https://schema.org/City",
+                        "countryname": "https://schema.org/Country",
+                        "architectname": "givenName",
+                        "architectsurname": "familyName"
+                    }, %s]
             }`
         ,id,data);
         
@@ -231,7 +280,20 @@ router.get('/:id',async(req,res) => {
     })
 
 });
-
+/*
+za post dio
+{
+    "landmarkname": "Zagreb Cathedral",
+    "century": 13,
+    "type": "Cathedral",
+    "height": 108,
+    "artstyle": "gothic",
+    "cityname": "Zagreb",
+    "countryname": "Croatia",
+    "architectname": "Hermann",
+    "architectsurname": "Bollé"
+}
+*/
 // POST /api/znamenitosti
 router.post('/',async(req,res) => {
     var maxIdBefore = (await pool.query(`SELECT max(landmarkid) FROM landmark`)).rows[0].max;
@@ -292,7 +354,19 @@ router.post('/',async(req,res) => {
             `{
                 "status":"200 OK",
                 "message":"The landmark with provided informations already exists.",
-                "response": [%s]
+                "response": [
+                    "@context": {
+                        "@vocab": "https://schema.org/",
+                        "landmarkname": "name",
+                        "century": "century",
+                        "type": "type",
+                        "height": "height",
+                        "artstyle": "artstyle",
+                        "cityname": "https://schema.org/City",
+                        "countryname": "https://schema.org/Country",
+                        "architectname": "givenName",
+                        "architectsurname": "familyName"
+                    }, %s]
             }`
         ,data);
         
@@ -307,7 +381,19 @@ router.post('/',async(req,res) => {
             `{
                 "status":"201 Created",
                 "message":"The new landmark is effectively created.",
-                "response": [%s]
+                "response": [
+                    "@context": {
+                        "@vocab": "https://schema.org/",
+                        "landmarkname": "name",
+                        "century": "century",
+                        "type": "type",
+                        "height": "height",
+                        "artstyle": "artstyle",
+                        "cityname": "https://schema.org/City",
+                        "countryname": "https://schema.org/Country",
+                        "architectname": "givenName",
+                        "architectsurname": "familyName"
+                    }, %s]
             }`
         ,data);
         
@@ -385,7 +471,19 @@ router.put('/:id',async(req,res) => {
         `{
             "status":"200 OK",
             "message":"The landmark with id = %s successfully updated.",
-            "response": [%s]
+            "response": [
+                "@context": {
+                    "@vocab": "https://schema.org/",
+                    "landmarkname": "name",
+                    "century": "century",
+                    "type": "type",
+                    "height": "height",
+                    "artstyle": "artstyle",
+                    "cityname": "https://schema.org/City",
+                    "countryname": "https://schema.org/Country",
+                    "architectname": "givenName",
+                    "architectsurname": "familyName"
+                }, %s]
         }`
     ,id,body);
 

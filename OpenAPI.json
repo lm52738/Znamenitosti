@@ -62,7 +62,7 @@
                 }
             }
         },
-        "/api/hoteli/openapi": {
+        "/api/znamenitosti/openapi": {
             "get": {
                 "description": "Returns the OpenAPI specification",
                 "responses": {
