@@ -4,7 +4,7 @@
 
 
 
-## Description
+## Opis
 Prikaz tablice podataka, pretraživanje po atributima, te login/signup putem OpenID Connect pružatelja identiteta.
 
 ## Autor
