@@ -2,15 +2,25 @@
 
 
 
-Autor: Lorena Martinović
 
-Verzija: 2.0
 
-Jezik podataka: engleski
+## Description
+Prikaz tablice podataka, pretraživanje po atributima, te login/signup putem OpenID Connect pružatelja identiteta.
 
-Licenca: Creative Commons Attribution-ShareAlike 3.0 Unported License
+## Autor
+Lorena Martinović
+
+## Verzija
+4.0
+
+## Jezik podataka
+Engleski
+
+## Licenca
+Creative Commons Attribution-ShareAlike 3.0 Unported License
 S obzirom da su svi podaci o znamenitostima preuzeti sa Wikipedije, napisani su engleskim jezikom te imaju licencu Creative Commons Attribution-ShareAlike 3.0 Unported License.
 
+## Opis podataka
 Skup otvorenih podataka se sastoji od atributa:
 
 - identifikator znamenitosti
@@ -32,5 +42,3 @@ Skup otvorenih podataka se sastoji od atributa:
 - ime arhitekta
 
 - prezime arhitekta
-
-Prikaz tablice podataka, pretraživanje po atributima, te login/signup putem OpenID Connect pružatelja identiteta.
