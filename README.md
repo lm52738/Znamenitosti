@@ -11,7 +11,7 @@ Jezik podataka: engleski
 Licenca: Creative Commons Attribution-ShareAlike 3.0 Unported License
 S obzirom da su svi podaci o znamenitostima preuzeti sa Wikipedije, napisani su engleskim jezikom te imaju licencu Creative Commons Attribution-ShareAlike 3.0 Unported License.
 
-Skup podataka se sastoji od atributa:
+Skup otvorenih podataka se sastoji od atributa:
 
 - identifikator znamenitosti
 
@@ -33,16 +33,4 @@ Skup podataka se sastoji od atributa:
 
 - prezime arhitekta
 
-Znamenitost ima atribute kao što su identifikator,naziv, stoljeće, tip, visina te umjetnički stil.
-
-Primarni ključ znamenitosti je identifikator. 
-
-Pri izgradnji znamenitosti je sudjelovalo jedan ili više arhitekata.
-
-Arhitekti su određeni također identifikatorom, imenom i prezimenom.
-
-Primarni ključ arhitekta je identifikator.
-
-S druge strane, znamenitost se nalazi u određenom gradu koji je u određenoj državi.
-
-Za entitete grad i državu su primarni ključevi imena.
+Prikaz tablice podataka, pretraživanje po atributima, te login/signup putem OpenID Connect pružatelja identiteta.
