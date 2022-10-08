@@ -1,1 +1,19 @@
-[{"landmarkid":3,"landmarkname":"Sagrada Familia","century":19,"type":"Minor basilica","height":170,"artstyle":"neoclassic","cityname":"Barcelona","countryname":"Spain","architects":[{"architectname":"Antoni","architectsurname":"Gaudi"}]}]
+[
+    {
+        "landmarkid":3,
+        "landmarkname":"Sagrada Familia",
+        "century":19,
+        "type":"Minor basilica",
+        "height":170,
+        "artstyle":"neoclassic",
+        "cityname":"Barcelona",
+        "countryname":"Spain",
+        "architects":
+        [
+            {
+                "architectname":"Antoni",
+                "architectsurname":"Gaudi"
+            }
+        ]
+    }
+]
